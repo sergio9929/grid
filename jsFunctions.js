@@ -15,7 +15,7 @@ function unmute() {
 }
 
 function mute() {
-    this.pause();
+    this.load();
     this.currentTime = 0;
     this.volume = 0;
 }
