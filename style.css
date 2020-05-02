@@ -14,6 +14,44 @@
     --yellow: rgba(227, 214, 34, .7);
 }
 
+.video::after {
+    position: absolute;
+    content: "";
+    background: url(img/play.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    z-index: 1000;
+    display: block;
+    transition: opacity .2s, height .4s;
+}
+
+.pause {
+    position: absolute;
+    content: "";
+    background: url(img/pause.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    z-index: 1000;
+    display: block;
+    transition: opacity .2s, height .4s;
+}
+
+.video::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 1px;
+    z-index: 1000;
+    display: block;
+    box-shadow: -5px 0px 30px 5px var(--dark1);
+    transition: opacity .2s, height .4s;
+}
+
+.video:hover::after, .video:hover::before, .video:focus::after, .video:focus::before {
+    opacity: 0;
+    height: 0;
+}
+
 html {
     background-color: var(--dark1);
 }
@@ -68,10 +106,12 @@ html {
     grid-column: span 4;
     grid-row: span 6;
 }
+
 .ar-8-4 {
     grid-column: span 8;
     grid-row: span 4;
 }
+
 .ar-2-4 {
     grid-column: span 2;
     grid-row: span 4;
@@ -225,7 +265,7 @@ img, video, .w {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
-    .ar-4-2, .ar-4-4,.ar-8-4, .ar-6-2, .ar-4-6 {
+    .ar-4-2, .ar-4-4, .ar-8-4, .ar-6-2, .ar-4-6 {
         grid-column: span 2;
         grid-row: span 2;
     }
