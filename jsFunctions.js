@@ -24,6 +24,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 });
 
+function unmute(){
+    this.parentElement.getElementsByTagName("video")[0].volume = .4;
+}
+
+function mute(){
+    this.parentElement.getElementsByTagName("video")[0].volume = 0;
+}
+
 function scroll() {
     if (window.pageYOffset - 100 > videoPosition) {
         for (let i = 0; i < document.getElementsByTagName("video").length; i++) {
@@ -42,28 +50,18 @@ function scroll() {
     }
 }
 
-function unmute() {
-    this.parentElement.getElementsByTagName("video")[0].volume = .4;
-}
-
-function mute() {
-    this.parentElement.getElementsByTagName("video")[0].volume = 0;
-}
-
 function change() {
     var video = this.parentElement.getElementsByTagName("video")[0];
     if (event.detail > 1) {
         video.currentTime = 0;
         video.volume = .4;
         video.parentElement.children[0].className = "play";
-        video.parentElement.children[0].setAttribute("src", "img/play.svg");
         video.play();
     } else {
         if (video.paused) {
             video.volume = .4;
             video.parentElement.children[0].className = "play";
             setTimeout(() => {
-                video.parentElement.children[0].setAttribute("src", "img/play.svg");
             }, 200)
 
             video.play();
@@ -71,7 +69,6 @@ function change() {
         } else {
             video.pause();
             video.volume = 0;
-            video.parentElement.children[0].setAttribute("src", "img/pause.svg");
             video.parentElement.children[0].className = "pause";
 
         }
@@ -82,14 +79,10 @@ function change1(video) {
     if (video.paused) {
         video.volume = 0;
         video.parentElement.children[0].className = "play";
-        setTimeout(() => {
-            video.parentElement.children[0].setAttribute("src", "img/play.svg");
-        }, 200)
         video.play();
 
     } else {
         video.pause();
-        video.parentElement.children[0].setAttribute("src", "img/pause.svg");
         video.parentElement.children[0].className = "pause";
     }
 }

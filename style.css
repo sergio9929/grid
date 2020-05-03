@@ -16,8 +16,9 @@
 
 .play {
     position: absolute;
-    width: 25px;
-    height: 25px;
+    opacity: 0;
+    height: 0;
+    width: 0;
     z-index: 1000;
     display: block;
     transition: opacity .2s, height .4s, width .4s;
@@ -34,12 +35,6 @@
     transition: opacity .2s, height .4s, width .4s;
     -webkit-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.3));
     filter: drop-shadow(0px 0px 3px rgba(0,0,0,.2));
-}
-
-.content:hover .play {
-    opacity: 0;
-    height: 0;
-    width: 0;
 }
 
 html {
