@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // document.getElementsByTagName("video")[i].parentElement.addEventListener("mouseover", unmute);
         // document.getElementsByTagName("video")[i].parentElement.addEventListener("mouseleave", mute);
         document.getElementsByTagName("video")[i].parentElement.addEventListener("click", change);
+        document.getElementsByTagName("video")[i].parentElement.addEventListener("dblclick", stop);
         // document.addEventListener("scroll", ()=>{
         //     if (timer) {
         //         clearTimeout(timer);
@@ -53,12 +54,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 function change() {
     var video = this.parentElement.getElementsByTagName("video")[0];
-    if (event.detail > 1) {
-        video.currentTime = 0;
-        video.volume = .4;
-        video.parentElement.children[0].className = "play";
-        video.play();
-    } else {
+    if (event.detail < 2) {
         if (video.paused) {
             video.volume = .4;
             video.parentElement.children[0].className = "play";
@@ -73,6 +69,15 @@ function change() {
         }
     }
 }
+
+function stop() {
+    var video = this.parentElement.getElementsByTagName("video")[0];
+    video.currentTime = 0;
+    video.volume = .4;
+    video.parentElement.children[0].className = "play";
+    video.play();
+}
+
 
 // function change1(video) {
 //     if (video.paused) {
