@@ -14,42 +14,32 @@
     --yellow: rgba(227, 214, 34, .7);
 }
 
-.video::after {
+.play {
     position: absolute;
-    content: "";
-    background: url(img/play.svg) no-repeat;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     z-index: 1000;
     display: block;
-    transition: opacity .2s, height .4s;
+    transition: opacity .2s, height .4s, width .4s;
+    -webkit-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.3));
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,.2));
 }
 
-.pause {
+.pause{
     position: absolute;
-    content: "";
-    background: url(img/pause.svg) no-repeat;
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     z-index: 1000;
     display: block;
-    transition: opacity .2s, height .4s;
+    transition: opacity .2s, height .4s, width .4s;
+    -webkit-filter: drop-shadow(0px 0px 3px rgba(0,0,0,.3));
+    filter: drop-shadow(0px 0px 3px rgba(0,0,0,.2));
 }
 
-.video::before {
-    position: absolute;
-    content: "";
-    width: 1px;
-    height: 1px;
-    z-index: 1000;
-    display: block;
-    box-shadow: -5px 0px 30px 5px var(--dark1);
-    transition: opacity .2s, height .4s;
-}
-
-.video:hover::after, .video:hover::before, .video:focus::after, .video:focus::before {
+.content:hover .play {
     opacity: 0;
     height: 0;
+    width: 0;
 }
 
 html {
